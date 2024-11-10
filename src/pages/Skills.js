@@ -64,17 +64,6 @@ export default function Skills (props){
       animateSkills('right')
       return [...prevSkills.slice(1), skillsData[newIndex]]
     })
-
-  //   if(newIndex > skillsData.length - 1) {
-  //     newIndex = 0;
-  //   }
-    
-  //   newSkills.shift()
-  //   newSkills.push(skillsData[newIndex])
-    
-    
-  //   setCurrentIndex(newIndex)
-  //   console.log(newIndex)
   }
   
   
@@ -99,12 +88,14 @@ export default function Skills (props){
           <div id="skills-container" className={`flex gap-4 mx-auto w-[190px] sm:w-[390px] md:w-[580px] lg:w-[760px] xl:w-[1000px] grayscale`}>
             {renderSkills.map((skillObj, index)=> {  
               return (
-                <div key={index} className="w-44 h-44 bg-text-color-dark dark:bg-text-color relative rounded-md card">
+                <div 
+                  key={index} 
+                  data-name={skillObj.name}
+                  className="w-44 h-44 bg-text-color-dark dark:bg-text-color relative rounded-md [&>*]:transition card">
+                  {/* <span className='bg-gray-600 flex rounded-md h-full w-0 orig hover:w-full'></span> */}
                   {skillObj.img ? 
-                    <>
-                      <span className='bg-red-500 absolute top-0 right-0 bottom-0 left-0 hover:animate-[curtain_1s_ease-in-out_1]'></span>
-                      <img src={skillObj.img} className='w-32 h-32 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:invert' alt={`${skillObj.name} logo`} /> 
-                    </>
+                    <img src={skillObj.img} className='w-32 h-32 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:invert' alt={`${skillObj.name} logo`} /> 
+                    
                     :
                     <p className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-semibold text-4xl'>{skillObj.name}</p>
                   }

@@ -7,14 +7,32 @@
   scroll-behavior: smooth;
 }
 
-@keyframes curtain {
-  0% {
-    width: 0
 
+.card::before {
+  content: attr(data-name);
+  color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: gray;
+  width: 0;
+  font-size: 1px;
+  height: 100%;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 40%;
+  
+  /* transform-origin: 'right'; */
+  transition-duration: 1000ms;
+}
+.card:hover {
+  &>* {
+    opacity: 30%;
   }
-  100% {
-    width: 100%
-    
+  &::before {
+    width: 100%;
+    color: black;
+    font-size: 1.3rem;
   }
 }
 
