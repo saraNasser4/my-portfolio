@@ -6,7 +6,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 export default function Skills (props){
   let visibleCount = props.pageWidth >= 1280 ? 5 : props.pageWidth >= 1024 ? 4 : props.pageWidth >= 768 ? 3 : props.pageWidth >= 640 ? 2 : 1;
   
-  const [currentIndex, setCurrentIndex] = useState(visibleCount - 1)
+  // const [currentIndex, setCurrentIndex] = useState(visibleCount - 1)
   const [renderSkills, setRenderSkills] = useState([])
 
   const skillsData = [
@@ -24,38 +24,57 @@ export default function Skills (props){
     { name: 'Firebase', img: '/assets/imgs/firebase.svg' },
   ]
 
+  const animateSkills = (direction) => {
+    const skillsContainer = document.querySelector('#skills-container')
+
+    gsap.fromTo(
+      skillsContainer.children,
+      { x: direction === 'left' ? 50 : -50, opacity:0 },
+      { x:0, opacity:1, stagger: 0.2, duration: 0.5, ease: "back.out" }
+    )
+
+  }
 
   const handleLeftClick = ()=> { 
-    const newSkills = [...renderSkills];
-
-    if(newSkills[0] === skillsData[0]) {
-      setCurrentIndex(skillsData.length - 1)
-      newSkills.unshift(skillsData[skillsData.length -1])
-    } else {
-      setCurrentIndex(currentIndex + 1)
-      newSkills.unshift(skillsData[currentIndex - 1])
-    }
-    
-    newSkills.pop()
-    console.log(currentIndex)
-        
-    setRenderSkills(newSkills)
+    setRenderSkills((prevSkills)=> {
+      const currentIndex = skillsData.map(el => el.name).indexOf(prevSkills[0].name);
+      console.log()
+      let newIndex = currentIndex - 1;
       
+      if(newIndex < 0) {
+        newIndex = skillsData.length - 1
+      }
+      console.log(newIndex, currentIndex)
+      
+      animateSkills('left')
+      return [skillsData[newIndex],...prevSkills.slice(0, visibleCount - 1)] 
+    })
   }
   
   const handleRightClick = ()=> {
-    const newSkills = [...renderSkills];
-    
-    newSkills.shift()
-    newSkills.push(skillsData[currentIndex + 1])
-        
-    setRenderSkills(newSkills)
+    setRenderSkills((prevSkills)=> {
+      const currentIndex = skillsData.map(el=> el.name).indexOf(prevSkills[prevSkills.length - 1].name)
+      let newIndex = currentIndex + 1;
       
-    if(newSkills[newSkills.length -1] === skillsData[skillsData.length - 1]) {
-      setCurrentIndex(-1);
-    } else {
-      setCurrentIndex(currentIndex + 1)
-    }
+      if(newIndex >= skillsData.length) {
+        newIndex = 0
+      }
+      
+      console.log(newIndex, currentIndex)
+      animateSkills('right')
+      return [...prevSkills.slice(1), skillsData[newIndex]]
+    })
+
+  //   if(newIndex > skillsData.length - 1) {
+  //     newIndex = 0;
+  //   }
+    
+  //   newSkills.shift()
+  //   newSkills.push(skillsData[newIndex])
+    
+    
+  //   setCurrentIndex(newIndex)
+  //   console.log(newIndex)
   }
   
   
@@ -77,14 +96,17 @@ export default function Skills (props){
               <IoIosArrowForward size={50} />
             </button>
           </div>
-          <div className={`flex gap-4 mx-auto w-[190px] sm:w-[390px] md:w-[580px] lg:w-[760px] xl:w-[1000px]`}>
+          <div id="skills-container" className={`flex gap-4 mx-auto w-[190px] sm:w-[390px] md:w-[580px] lg:w-[760px] xl:w-[1000px] grayscale`}>
             {renderSkills.map((skillObj, index)=> {  
               return (
-                <div key={index} className="w-44 h-44 bg-red-600 relative rounded-md">
+                <div key={index} className="w-44 h-44 bg-text-color-dark dark:bg-text-color relative rounded-md card">
                   {skillObj.img ? 
-                    <img src={skillObj.img} className='w-32 h-32 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' alt={`${skillObj.name} logo`} /> 
+                    <>
+                      <span className='bg-red-500 absolute top-0 right-0 bottom-0 left-0 hover:animate-[curtain_1s_ease-in-out_1]'></span>
+                      <img src={skillObj.img} className='w-32 h-32 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:invert' alt={`${skillObj.name} logo`} /> 
+                    </>
                     :
-                    <p>{skillObj.name}</p>
+                    <p className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-semibold text-4xl'>{skillObj.name}</p>
                   }
                 </div>
               )
