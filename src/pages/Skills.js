@@ -6,7 +6,6 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 export default function Skills (props){
   let visibleCount = props.pageWidth >= 1280 ? 5 : props.pageWidth >= 1024 ? 4 : props.pageWidth >= 768 ? 3 : props.pageWidth >= 640 ? 2 : 1;
   
-  // const [currentIndex, setCurrentIndex] = useState(visibleCount - 1)
   const [renderSkills, setRenderSkills] = useState([])
 
   const skillsData = [
@@ -30,7 +29,7 @@ export default function Skills (props){
     gsap.fromTo(
       skillsContainer.children,
       { x: direction === 'left' ? 50 : -50, opacity:0 },
-      { x:0, opacity:1, stagger: 0.2, duration: 0.5, ease: "back.out" }
+      { x:0, opacity:1, stagger: 0.1, duration: 0.5, ease: "back.out" }
     )
 
   }
@@ -44,7 +43,6 @@ export default function Skills (props){
       if(newIndex < 0) {
         newIndex = skillsData.length - 1
       }
-      console.log(newIndex, currentIndex)
       
       animateSkills('left')
       return [skillsData[newIndex],...prevSkills.slice(0, visibleCount - 1)] 
@@ -60,7 +58,6 @@ export default function Skills (props){
         newIndex = 0
       }
       
-      console.log(newIndex, currentIndex)
       animateSkills('right')
       return [...prevSkills.slice(1), skillsData[newIndex]]
     })
@@ -73,10 +70,10 @@ export default function Skills (props){
   
   const arrowStyle = 'hover:text-accent-color dark:hover:text-accent-color transition-all hover:scale-105'
   return (
-    <section id='skills' className={`${props.Styles.section} max-w-screen max-h-screen `}>
-      <div className="flex flex-col justify-between">
+    <section id='skills' className={`${props.Styles.section} min-w-screen`}>
+      <div className="">
         <h2 className={props.Styles.h2}>&lt;skills /&gt;</h2>
-        <div className="max-h-full overflow-hidden relative">
+        <div className="relative mt-20 mb-40">
           <div className=" absolute flex justify-between right-4 left-4 top-1/3  ">
             <button onClick={handleLeftClick} className={`${arrowStyle} hover:-translate-x-2`}>
               <IoIosArrowBack size={50} />
@@ -85,17 +82,16 @@ export default function Skills (props){
               <IoIosArrowForward size={50} />
             </button>
           </div>
-          <div id="skills-container" className={`flex gap-4 mx-auto w-[190px] sm:w-[390px] md:w-[580px] lg:w-[760px] xl:w-[1000px] grayscale`}>
+          <div id="skills-container" className={`flex gap-4 mx-auto w-[190px] sm:w-[390px] md:w-[580px] lg:w-[760px] xl:w-[1000px]`}>
             {renderSkills.map((skillObj, index)=> {  
               return (
                 <div 
                   key={index} 
                   data-name={skillObj.name}
-                  className="w-44 h-44 bg-text-color-dark dark:bg-text-color relative rounded-md [&>*]:transition card">
-                  {/* <span className='bg-gray-600 flex rounded-md h-full w-0 orig hover:w-full'></span> */}
+                  className="w-44 h-44 bg-text-color-dark dark:bg-text-color relative rounded-md cursor-default select-none card"
+                >
                   {skillObj.img ? 
                     <img src={skillObj.img} className='w-32 h-32 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:invert' alt={`${skillObj.name} logo`} /> 
-                    
                     :
                     <p className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-semibold text-4xl'>{skillObj.name}</p>
                   }

@@ -21,8 +21,8 @@
   font-weight: 700;
   text-align: center;
   padding-top: 40%;
+  border-radius: 6px;
   
-  /* transform-origin: 'right'; */
   transition-duration: 1000ms;
 }
 .card:hover {
