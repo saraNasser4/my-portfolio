@@ -1,6 +1,9 @@
 import { IoIosSunny, IoIosMoon } from "react-icons/io";
+import { useContext } from "react";
+import { AppStates } from "./StateContext";
 
-export default function DAL ({ isDark, toggleDarkMode }) {
+export default function DAL () {
+  const { isDark, toggleDarkMode } = useContext(AppStates)
  return (
     <button 
       onClick={toggleDarkMode}

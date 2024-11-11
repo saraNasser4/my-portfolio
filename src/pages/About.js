@@ -1,6 +1,8 @@
-import { useState } from "react"
+import { useState, useContext } from "react";
+import { AppStates } from "../components/StateContext";
 
-export default function About (props){
+export default function About (){
+  const { Styles } = useContext(AppStates)
   const [isShow, setIsShow] = useState(false);
 
   const oneStyle = 'rounded-full w-11 h-44'
@@ -23,10 +25,10 @@ export default function About (props){
 
   
   return (
-    <section id='aboutMe' className={`${props.Styles.section} bg-accent-color dark:bg-accent-color-dark text-text-color-dark dark:text-text-color `}>
+    <section id='aboutMe' className={`${Styles.section} bg-accent-color dark:bg-accent-color-dark text-text-color-dark dark:text-text-color `}>
       <div className='flex flex-col md:flex-row items-center justify-between md:gap-6'>
         <div className='max-w-[600px] flex-1 '>
-          <h2 className={`${props.Styles.h2} md:!pt-0`}>&lt;aboutMe /&gt;</h2>
+          <h2 className={`${Styles.h2} md:!pt-0`}>&lt;aboutMe /&gt;</h2>
           <>
             <h3 className="text-lg sm:text-xl font-semibold mb-4">Hi, I'm Sara, a passionate Frontend Developer</h3>
             <p className={`sm:text-lg !leading-5 tracking-tigh line-clamp- text-justify indent-2 ${isShow ? '' : 'line-clamp-4'}`}>

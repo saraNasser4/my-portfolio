@@ -1,10 +1,13 @@
 import Header from "../components/Header"
 import { ReactTyped } from "react-typed";
-import { useEffect } from "react"
+import { useEffect, useContext } from "react"
+import { AppStates } from "../components/StateContext";
 import { gsap } from "gsap"
 
 
-export default function Home (props){
+export default function Home(props){
+  const { Styles, isDark } = useContext(AppStates);
+
   const btnsData = [
     { 
       'href' : 'https://1drv.ms/w/c/9592e8d1d07509a2/EbeW9C8hmfJOpXe7ebhXb3EBkWC0G5uuvflxFVqMVLMW-Q?e=hag1vh',
@@ -18,15 +21,11 @@ export default function Home (props){
 
   useEffect(()=> {
     gsap.fromTo(['.gsap-ani'], {x: -200, opacity: 0},{ x: 0, opacity:1, ease: 'power3.out', duration: 0.8, stagger: .2 })
-  }, [props.isDark])
+  }, [isDark])
 
   return (
     <section id='home' className="min-w-screen min-h-screen">
-      <Header 
-        isOpen={props.isOpen} 
-        setIsOpen={props.setIsOpen} 
-        handleMenu={props.handleMenu}
-        pageWidth={props.pageWidth}> 
+      <Header> 
         {props.children}
       </Header>
 
@@ -46,7 +45,7 @@ export default function Home (props){
           <div className="my-10 flex flex-col md:flex-row gap-3">
             {btnsData.map((btn, index)=> {
               return(
-                <button key={index} className={`${index === 1 ? 'bg-inherit text-text-color dark:text-text-color-dark border border-accent-color dark:border-accent-color-dark hover:text-[#0d8a35] dark:hover:text-[#248c39] ': props.Styles.btn.btnColor} ${props.Styles.btn.btnStyle}`}>
+                <button key={index} className={`${index === 1 ? 'bg-inherit text-text-color dark:text-text-color-dark border border-accent-color dark:border-accent-color-dark hover:text-[#0d8a35] dark:hover:text-[#248c39] ': Styles.btn.btnColor} ${Styles.btn.btnStyle}`}>
                   <a href={btn.href} target={`${index === 1 ? '_self':'_blanket'}`}>{btn.text}</a>
                 </button>
               )

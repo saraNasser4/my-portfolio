@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { AppStates } from '../components/StateContext';
+
 import gsap from 'gsap';
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export default function Skills (props){
-  let visibleCount = props.pageWidth >= 1280 ? 5 : props.pageWidth >= 1024 ? 4 : props.pageWidth >= 768 ? 3 : props.pageWidth >= 640 ? 2 : 1;
+export default function Skills (){
+  const { Styles, pageWidth } = useContext(AppStates)
+
+  let visibleCount = pageWidth >= 1280 ? 5 : pageWidth >= 1024 ? 4 : pageWidth >= 768 ? 3 : pageWidth >= 640 ? 2 : 1;
   
   const [renderSkills, setRenderSkills] = useState([])
 
@@ -70,9 +74,9 @@ export default function Skills (props){
   
   const arrowStyle = 'hover:text-accent-color dark:hover:text-accent-color transition-all hover:scale-105'
   return (
-    <section id='skills' className={`${props.Styles.section} min-w-screen`}>
+    <section id='skills' className={`${Styles.section} min-w-screen`}>
       <div className="">
-        <h2 className={props.Styles.h2}>&lt;skills /&gt;</h2>
+        <h2 className={Styles.h2}>&lt;skills /&gt;</h2>
         <div className="relative mt-20 mb-40">
           <div className=" absolute flex justify-between right-4 left-4 top-1/3  ">
             <button onClick={handleLeftClick} className={`${arrowStyle} hover:-translate-x-2`}>

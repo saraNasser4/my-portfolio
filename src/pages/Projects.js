@@ -1,8 +1,12 @@
-export default function Projects (props){
+import { useContext } from "react";
+import { AppStates } from "../components/StateContext";
+
+export default function Projects () {
+    const { Styles } = useContext(AppStates)
     return (
-      <section id='projects' className="absolute z-[20]">
+      <section id='projects' className={`${Styles.section}`}>
         
-        <h2 className={props.Styles['h2']}>&lt;projects /&gt;</h2>
+        <h2 className={Styles.h2}>&lt;projects /&gt;</h2>
       </section>
     )
   }

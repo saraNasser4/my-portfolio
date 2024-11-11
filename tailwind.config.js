@@ -18,6 +18,7 @@ module.exports = {
       
       fontFamily: {
         custom: ['Bungee Outline', 'serif'],
+        handWriting : ['Indie Flower', 'cursive'],
       }
     },
   },
