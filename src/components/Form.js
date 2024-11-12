@@ -5,7 +5,7 @@ export default function Form () {
     const { Styles } = useContext(AppStates)
     const inputStyles = "my-2 bg-inherit border-b-2 px-2 py-3 outline-none text-lg md:text-xl font-medium placeholder:text-gray-300 shadow-sm dark:placeholder:text-gray-100 focus:border-b-accent-color-dark ";
     return(
-        <form className='flex flex-col max-w-[550px]'>
+        <form className='flex flex-col max-w-[550px] mx-auto'>
             <input className={`${inputStyles}`} type="text" placeholder="Your Name" required/>
             <input className={`${inputStyles}`} type="email" placeholder="E-mail" required/>
             <input className={`${inputStyles}`} type="text" placeholder="Message" />
