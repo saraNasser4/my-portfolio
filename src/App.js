@@ -25,7 +25,7 @@ function App() {
         scrollTrigger: { trigger: '#aboutMe', start: 'top 50%', end: 'top 10%', scrub: true },
         y: 0, duration: 0.8, stagger: 0.2,  opacity: 1
       })
-    // gsap.fromTo('#line', { opacity: 0 },{ opacity:1, ease: 'power3.out', duration: 0.8 })
+        
   }, [isDark])
 
   return (

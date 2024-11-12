@@ -3,10 +3,9 @@ import { AppStates } from './StateContext';
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 
 export default function Header (props) {
-  const {isOpen, setIsOpen, handleMenu, pageWidth } = useContext(AppStates);
+  const { isOpen, handleMenu, pageWidth } = useContext(AppStates);
 
   const listItems = ['home', 'aboutMe', 'skills', 'projects', 'contactMe']
-  
   
   let smallWidth = 868;
   return (
@@ -29,7 +28,7 @@ export default function Header (props) {
           <nav className={`flex font-medium text-lg xl:text-xl ${pageWidth > smallWidth ? 'relative [&>*]:mr-2 [&>*]:lg:mr-4': isOpen ? 'absolute top-20 right-10 left-10 dark:bg-text-color bg-background-color py-4 flex-col items-center rounded-b-md z-[90]' : 'hidden'}`}>
               {listItems.map((item, index)=> {
                 return( 
-                  <a key={index} href={`#${item}`} onClick={handleMenu} className="hover:text-accent-color dark:hover:text-accent-color-dark py-2">{pageWidth <= smallWidth ? item[0].toUpperCase() + item.slice(1) : `<${item} />`}</a>
+                  <a key={index} href={`#${item}`} onClick={pageWidth <= smallWidth ? handleMenu : null} className="hover:text-accent-color dark:hover:text-accent-color-dark py-2">{pageWidth <= smallWidth ? item[0].toUpperCase() + item.slice(1) : `<${item} />`}</a>
                 )
               })}    
           </nav>
