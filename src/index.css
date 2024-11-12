@@ -8,6 +8,12 @@
 }
 
 
+@keyframes line {
+  0%   { opacity: 0;}
+  100%   { opacity: 1;}
+  
+}
+
 .card::before {
   content: attr(data-name);
   color: transparent;

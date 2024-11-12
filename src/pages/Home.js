@@ -1,8 +1,7 @@
 import Header from "../components/Header"
 import { ReactTyped } from "react-typed";
-import { useEffect, useContext } from "react"
+import { useContext } from "react"
 import { AppStates } from "../components/StateContext";
-import { gsap } from "gsap"
 
 
 export default function Home(props){
@@ -19,9 +18,6 @@ export default function Home(props){
     }
   ]
 
-  useEffect(()=> {
-    gsap.fromTo(['.gsap-ani'], {x: -200, opacity: 0},{ x: 0, opacity:1, ease: 'power3.out', duration: 0.8, stagger: .2 })
-  }, [isDark])
 
   return (
     <section id='home' className="min-w-screen min-h-screen">

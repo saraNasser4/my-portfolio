@@ -18,8 +18,7 @@ export default function Header (props) {
           {props.children}
         </div>
         <div className="flex items-center max-w-[900px]">
-          {pageWidth >= smallWidth ? setIsOpen(false) :
-           (  
+          {pageWidth <= smallWidth && (  
             <button 
               onClick={handleMenu}
               className={`${isOpen ? 'bg-black/10 dark:bg-white/20' : 'hover:bg-black/10 hover:dark:bg-white/20'} duration-700 p-2 rounded-full cursor-pointer`}

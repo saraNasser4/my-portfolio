@@ -28,6 +28,7 @@ export default function StateContext (props){
     window.addEventListener('resize', ()=> {
       setPageWidth(window.innerWidth);
     });
+    if(pageWidth >= 868) setIsOpen(false);
     return ()=> window.removeEventListener('resize', ()=> setPageWidth(window.innerWidth))
   }, [pageWidth])
   

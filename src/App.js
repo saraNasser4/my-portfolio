@@ -18,12 +18,15 @@ function App() {
   const { isDark, handleMenu, isOpen } = useContext(AppStates)
 
   useEffect(()=> {
+    gsap.fromTo(['.gsap-ani'], {x: -200, opacity: 0},{ x: 0, opacity:1, ease: 'power3.out', duration: 0.8, stagger: .2 })
+    
     gsap.fromTo(['#one', '#two', '#three'], { y: 200, opacity: 0},
       {
-      scrollTrigger: { trigger: '#aboutMe', start: 'top 40%', end: 'top 10%', scrub: true },
-      y: 0, duration: 0.8, stagger: 0.2,  opacity: 1
-    })
-  }, [])
+        scrollTrigger: { trigger: '#aboutMe', start: 'top 50%', end: 'top 10%', scrub: true },
+        y: 0, duration: 0.8, stagger: 0.2,  opacity: 1
+      })
+    // gsap.fromTo('#line', { opacity: 0 },{ opacity:1, ease: 'power3.out', duration: 0.8 })
+  }, [isDark])
 
   return (
     <>
