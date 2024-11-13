@@ -6,7 +6,6 @@ export default function Form () {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' })
     const [status, setStatus] = useState(true);
     const [IsModuleOpen, setIsModuleOpen] = useState(false);
-
     
     const handleChange = (e)=> {
         const { name, value } = e.target
@@ -14,18 +13,18 @@ export default function Form () {
     }
     const handleOnSubmit = (e)=> {
         e.preventDefault();
-        const payload = {
-            name: formData.name,
-            email: formData.email,
-            message: formData.message
-        }
-        emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID , process.env.REACT_APP_EMAILJS_TEMPLATE_ID, payload, { publicKey: process.env.REACT_APP_EMAILJS_USER_ID })
+        
+        emailjs.init(process.env.REACT_APP_EMAILJS_USER_ID)
+        emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID , process.env.REACT_APP_EMAILJS_TEMPLATE_ID, formData)
             .then(()=> {
-                setStatus('')
+                setStatus(true)
                 setIsModuleOpen(true)
                 setFormData({ name: '', email: '', message: '' })              
             })
-            .catch(()=> setStatus(false))      
+            .catch((err)=> {
+                 setStatus(false)
+                 console.error(err)
+            })      
     }
 
     const { Styles } = useContext(AppStates)
@@ -33,9 +32,9 @@ export default function Form () {
     return(
         <>
             <form onSubmit={(e)=>handleOnSubmit(e)} className={`flex flex-col max-w-[550px] mx-auto md:mx-0`}>
-                <input className={`${inputStyles}`} onChange={(e)=>handleChange(e)} name="name" type="text" placeholder="Your Name" required/>
-                <input className={`${inputStyles}`} onChange={(e)=>handleChange(e)} name="email" type="email" placeholder="E-mail" required/>
-                <textarea className={`${inputStyles} resize-none`} onChange={(e)=>handleChange(e)} name="message" type="text" placeholder="Message" required></textarea>
+                <input className={`${inputStyles}`} onChange={(e)=>handleChange(e)} name="name" value={formData.name} type="text" placeholder="Your Name" required/>
+                <input className={`${inputStyles}`} onChange={(e)=>handleChange(e)} name="email" value={formData.email} type="email" placeholder="E-mail" required/>
+                <textarea className={`${inputStyles} resize-none`} onChange={(e)=>handleChange(e)} name="message" value={formData.message} type="text" placeholder="Message" required></textarea>
                 <button className={`${Styles.btn.btnStyle} border-2 text-white my-6 duration-500 bg-primary-color dark:bg-primary-color-dark border-primary-color hover:border-primary-color-dark dark:border-primary-color-dark hover:!bg-inherit hover:text-primary-color-dark`} type="submit">Send</button>
             </form>
            
