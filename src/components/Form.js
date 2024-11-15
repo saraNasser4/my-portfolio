@@ -28,7 +28,7 @@ export default function Form () {
     }
 
     const { Styles } = useContext(AppStates)
-    const inputStyles = "my-2 bg-accent-color dark:bg-black border-b-2 px-2 py-3 outline-none text-lg md:text-xl font-medium placeholder:text-gray-300 shadow-sm dark:placeholder:text-gray-100 focus:border-b-accent-color-dark ";
+    const inputStyles = "my-2 dark:bg-black border-b-2 border-black dark:border-white rounded px-2 py-3 outline-none text-lg md:text-xl font-medium placeholder:text-gray-400 shadow-sm dark:placeholder:text-gray-100 focus:border-b-accent-color-dark ";
     return(
         <>
             <form onSubmit={(e)=>handleOnSubmit(e)} className={`flex flex-col max-w-[550px] mx-auto md:mx-0`}>
