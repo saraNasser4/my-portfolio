@@ -25,7 +25,7 @@ export default function About (){
 
   
   return (
-    <section id='aboutMe' className={`${Styles.section} bg-accent-color dark:bg-accent-color-dark text-text-color-dark dark:text-text-color `}>
+    <section id='aboutMe' className={`${Styles.section} bg-accent-color dark:bg-accent-color-dark text-text-color-dark dark:text-text-color rounded-tr-[200px] rounded-bl-[200px] md:rounded-none`}>
       <div className='flex flex-col md:flex-row items-center justify-between md:gap-6'>
         <div className='max-w-[600px] flex-1 '>
           <h2 className={`${Styles.h2} md:!pt-0`}>&lt;aboutMe /&gt;</h2>
@@ -40,7 +40,7 @@ export default function About (){
             <h3 className="text-lg sm:text-xl font-semibold mt-2">Feel free to check my projects <a href='#projects' className="underline underline-offset-4 text-text-color dark:text-primary-color-dark">Here</a>, and don’t hesitate to reach out if you’d like to connect or discuss more about how I can help bring your ideas to life.</h3>
           </>
         </div>
-        <div className="flex-3 w-[250px] h-[350px] relative">
+        <div id='img' className="flex-3 w-[250px] h-[350px] relative">
           {Img}
         </div>
       </div>

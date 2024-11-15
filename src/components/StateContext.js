@@ -8,8 +8,10 @@ export default function StateContext (props){
   const [pageWidth, setPageWidth] = useState(window.innerWidth);
 
   const toggleDarkMode =()=> {
-    setIsDark(prev => !prev);
-    document.body.classList.toggle("dark");
+    setIsDark(prev =>{
+      prev ? document.body.classList.remove('dark') : document.body.classList.add('dark')
+      return !prev
+    });
   }
   const handleMenu =()=> {
     setIsOpen(prev => !prev)
@@ -31,6 +33,14 @@ export default function StateContext (props){
     if(pageWidth >= 868) setIsOpen(false);
     return ()=> window.removeEventListener('resize', ()=> setPageWidth(window.innerWidth))
   }, [pageWidth])
+
+  useEffect(()=> {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      setIsDark(true)
+      document.body.classList.add('dark')
+    }
+  }, [])
   
   return (
     <AppStates.Provider value={{

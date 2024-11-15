@@ -22,7 +22,7 @@ function App() {
     
     gsap.fromTo(['#one', '#two', '#three'], { y: 200, opacity: 0},
       {
-        scrollTrigger: { trigger: '#aboutMe', start: 'top 50%', end: 'top 10%', scrub: true },
+        scrollTrigger: { trigger: '#img', start: 'top 90%', end: 'top 40%', scrub: 0.5 },
         y: 0, duration: 0.8, stagger: 0.2,  opacity: 1
       })
     gsap.fromTo(['#bubble'], { y: -1000, opacity: 0},
