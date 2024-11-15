@@ -21,7 +21,7 @@ export default function Contact () {
           <Form />
         </div>
         <div className="z-20">
-          <p className="font-handWriting text-xl lg:text-2xl w-[370px] mx-auto md:-rotate-6 md:mt-4 mb-10 bg-white text-text-color px-4 py-6">
+          <p className="font-handWriting text-xl lg:text-2xl max-w-[370px] w-full mx-auto md:-rotate-6 md:mt-4 mb-10 bg-white text-text-color px-4 py-6">
             While I may be a junior developer with limited experience, I am deeply passionate about web development and committed to growing my skills. I’m eager to learn, take on new challenges, and push myself to continually improve. 
             <span className='mt-2 inline-block'>
               I understand that hiring a junior developer may come with its challenges, but I truly believe that with my dedication and potential, I can grow into the best frontend developer you could hire<span className='animate-[line_1s_ease-in-out_infinite] font-sans'>|</span>
