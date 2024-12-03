@@ -38,7 +38,7 @@ function App() {
       {isDark && (
         <div className="relative z-[-1]">
             <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/60 z-[1]"></div>
-            <video className="h-screen w-screen object-cover fixed grayscale z-[0]" loop autoPlay muted>
+            <video className="h-screen w-screen cursor-none object-cover fixed grayscale z-[-1]" loop autoPlay muted>
               <source src='/assets/landing-video.mp4' type="video/mp4" />
             </video>
           </div>
