@@ -11,7 +11,7 @@ export default function Header (props) {
   return (
     <header className="fixed top-8 left-0 right-0 max-w-[1500px] w-[90%] h-20 py-4 px-[2%] lg:px-[5%] bg-black/10 dark:bg-white/20 z-[100] mx-auto rounded-full flex items-center justify-between text-nowrap">
         <div>
-          <p className="font-bold text-xl md:text-2xl lg:text-3xl">Sara <span className="text-accent-color dark:text-accent-color-dark">Nasser</span></p>
+          <a href='#home' className="font-bold text-xl md:text-2xl lg:text-3xl">Sara <span className="text-accent-color dark:text-accent-color-dark">Nasser</span></a>
         </div>
         <div className={`${pageWidth <= smallWidth ? 'mr-[80px]' : '-mr-8'}`}>
           {props.children}
