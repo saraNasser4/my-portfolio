@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { AppStates } from "./StateContext";
+import { AppStates } from "../context/StateContext";
 import emailjs from 'emailjs-com';
 
 export default function Form () {

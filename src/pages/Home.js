@@ -1,8 +1,7 @@
 import Header from "../components/Header"
 import { ReactTyped } from "react-typed";
 import { useContext } from "react"
-import { AppStates } from "../components/StateContext";
-// import cv from "/mycv/cv.pdf"
+import { AppStates } from "../context/StateContext";
 
 export default function Home(props){
   const { Styles } = useContext(AppStates);
@@ -27,7 +26,7 @@ export default function Home(props){
         <p className="gsap-ani md:text-lg text-black/80 dark:text-white/80 !leading-6 max-w-[450px]">I build responsive web applications using React and TailwindCSS, focusing on creating seamless and engaging user experiences. I’m passionate about tackling new challenges and constantly expanding my skills through hands-on projects.</p>
         <div className="my-10 flex flex-col md:flex-row gap-3">
           <button className={`${Styles.btn.btnColor} ${Styles.btn.btnStyle}`}>
-            <a href='/mycv/cv.pdf' download='my-cv.pdf' rel="nooperner noreferrer">Download my CV</a>
+            <a href='/assets/mycv/cv.pdf' download='my-cv.pdf' rel="nooperner noreferrer">Download my CV</a>
           </button>      
           <button className={`bg-inherit text-text-color dark:text-text-color-dark border border-accent-color dark:border-accent-color-dark hover:text-[#0d8a35] dark:hover:text-[#248c39] ${Styles.btn.btnStyle}`}>
             <a href='#contactMe'>Contact me</a>

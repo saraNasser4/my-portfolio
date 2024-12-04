@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
-import { AppStates } from '../components/StateContext';
+import { AppStates } from '../context/StateContext';
 
 import gsap from 'gsap';
 

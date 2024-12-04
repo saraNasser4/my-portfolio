@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { AppStates } from "../components/StateContext";
+import { AppStates } from "../context/StateContext";
 
 export default function About (){
   const { Styles } = useContext(AppStates)

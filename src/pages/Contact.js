@@ -1,6 +1,6 @@
 import Form from '../components/Form'
 import { useContext } from "react";
-import { AppStates } from "../components/StateContext";
+import { AppStates } from "../context/StateContext";
 
 import { IoLogoLinkedin, IoLogoGithub, IoMdMail } from "react-icons/io";
 export default function Contact () {

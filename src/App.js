@@ -7,10 +7,12 @@ import DAL from "./components/DAL"
 
 
 import { useEffect, useContext } from "react";
-import { AppStates } from "./components/StateContext";
+import { AppStates } from "./context/StateContext";
 
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { BrowserRouter as Router } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -50,7 +52,9 @@ function App() {
         </Home>
         <About/>
         <Skills/>
-        <Projects/>
+        <Router>
+          <Projects/>
+        </Router>
         <Contact/>
       </div>
     </>

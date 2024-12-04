@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { AppStates } from './StateContext';
+import { AppStates } from '../context/StateContext';
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 
 export default function Header (props) {
