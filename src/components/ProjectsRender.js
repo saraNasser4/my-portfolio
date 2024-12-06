@@ -31,7 +31,7 @@ export default function ProjectsRender ({ path }) {
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 '>
                 {dataToDisplay.map((project)=> {
                     return(
-                        <div key={project.id} className='relative min-w-[380px] max-w-[600px] h-[340px] md:min-w-[480px] md:h-[430px] border border-black/10 rounded-lg overflow-hidden shadow-md transition-all duration-200 mx-auto scale-95'>
+                        <div key={project.id} className='relative min-w-[360px] max-w-[600px] h-[330px] md:min-w-[480px] md:h-[430px] border border-black/10 rounded-lg overflow-hidden shadow-md transition-all duration-200 mx-auto scale-95'>
                             <a title='Go Live' className={`${spanStyle} top-0 right-0 rounded-bl-full px-3`} href={project.url} target='_blank' rel='noopener noreferrer' alt='project live'><IoArrowRedoOutline size={30} /></a>
                             <a title='See Code' className={`${spanStyle} bottom-0 left-0 rounded-tr-full py-3`} href={project.github} target='_blank' rel='noopener noreferrer' alt='github code'><IoLogoGithub size={30} /></a>
                             <div className='absolute z-[10] bg-black/40 rounded-lg w-full h-full' />
