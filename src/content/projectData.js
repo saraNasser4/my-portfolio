@@ -1,4 +1,10 @@
 export const projectData = {
+    'react' : [
+    
+    ],
+    'js' : [
+        
+    ],
     'html&css' : [
         {
             id: 1,
@@ -60,11 +66,5 @@ export const projectData = {
             url: 'https://youtube-colne-videos.netlify.app',
             github: 'https://github.com/saraNasser4/youtube-videos-page',
         },
-    ],
-    'js' : [
-
-    ],
-    'react' : [
-
     ],
 }
