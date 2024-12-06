@@ -29,7 +29,7 @@ export default function Contact () {
           </p>
           <div className='w-full h-0.5 bg-text-color dark:bg-text-color-dark'></div>
           <div className='flex justify-evenly items-center my-5'>
-            {linksList.map((link, index)=> <a className='hover:text-primary-color-dark' key={index} href={link.href} target='_blank' rel='noreferrer'>{link.logo}</a>)}
+            {linksList.map((link, index)=> <a className='hover:text-primary-color-dark text-text-color dark:text-text-color-dark' key={index} href={link.href} target='_blank' rel='noreferrer'>{link.logo}</a>)}
           </div>
         </div>
       </div>
