@@ -8,7 +8,7 @@ import ProjectsRender from '../components/ProjectsRender'
 export default function Projects () {
     const { Styles } = useContext(AppStates)
     return (
-      <section id='projects' className={`${Styles.section}`}>
+      <section id='projects' className={`${Styles.section} !p-0.5`}>
         <div>
           <h2 className={Styles.h2}>&lt;projects /&gt;</h2>
 

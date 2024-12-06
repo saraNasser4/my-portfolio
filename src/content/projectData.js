@@ -3,7 +3,48 @@ export const projectData = {
     
     ],
     'js' : [
-        
+        {
+            id: 1,
+            name: 'Notes',
+            url: 'https://notes-sara.netlify.app',
+            github: 'https://github.com/saraNasser4/notes-app',
+        },
+        {
+            id: 2,
+            name: 'Quote of the Day',
+            url: 'https://your-quote-today.netlify.app',
+            github: 'https://github.com/saraNasser4/quotes',
+        },
+        {
+            id: 3,
+            name: 'Weather App',
+            url: 'https://weather-app-sara.netlify.app',
+            github: 'https://github.com/saraNasser4/weather-app',
+        },
+        {
+            id: 4,
+            name: 'Todo-List',
+            url: 'https://todo-list-js-sara.netlify.app',
+            github: 'https://github.com/saraNasser4/todo-list-js',
+        },
+        {
+            id: 5,
+            name: 'Random Password',
+            url: 'https://random-password-to-go.netlify.app',
+            github: 'https://github.com/saraNasser4/random-password',
+        },
+        {
+            id: 6,
+            name: 'Guess a Number',
+            url: 'https://guess-a-number-sara.netlify.app',
+            github: 'https://github.com/saraNasser4/guess-number',
+        },
+        {
+            id: 7,
+            name: 'DOM Tasks',
+            url: 'https://dom-tasks-sara.netlify.app',
+            github: 'https://github.com/saraNasser4/dom-tasks',
+        },
     ],
     'html&css' : [
         {
