@@ -44,7 +44,7 @@ export default function ProjectsRender ({ path }) {
                             )}
 
                             <iframe 
-                                className='w-full h-full z-[9] grayscale' 
+                                className='w-full h-full z-[9] grayscale dark:grayscale-0' 
                                 src={project.url} 
                                 title={project.name}
                                 scrolling='noscroll'
