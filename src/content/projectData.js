@@ -2,24 +2,30 @@ export const projectData = {
     'react' : [
         {
             id: 1,
+            name: 'Crypto Screener',
+            url: 'https://crypto-screener-tau.vercel.app',
+            github: 'https://github.com/saraNasser4/crypto-screener',
+        },
+        {
+            id: 2,
             name: 'Pokédex App',
             url: 'https://cool-pokedex-app.netlify.app',
             github: 'https://github.com/saraNasser4/pokeDex',
         },
         {
-            id: 2,
+            id: 3,
             name: 'Coffee Tracker', 
             url: 'https://coffee-tracker-seven.vercel.app',
             github: 'https://github.com/saraNasser4/coffee-tracker',
         },
         {
-            id: 3,
+            id: 4,
             name: 'Todo List',
             url: 'https://todo-list-app-sara.netlify.app',
             github: 'https://github.com/saraNasser4/ToDo-list',
         },
         {
-            id: 4,
+            id: 5,
             name: 'Landing Page',
             url: 'https://landing-react-tailwind.netlify.app',
             github: 'https://github.com/saraNasser4/landing-page-react-tailwind',
