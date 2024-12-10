@@ -7,20 +7,20 @@ import LoadingSipinner from './LoadingSipinner';
 export default function ProjectsRender ({ path }) {
     const { Styles } = useContext(AppStates)
 
-    const [pages, setPages] = useState(4)
+    const [cards, setCards] = useState(4)
     const [btnText, setBtnText] = useState('Show Me More Masterpieces')
     const [isLoading, setIsLoading] = useState(true)
     const [compLoading, setCompLoading] = useState(true)
 
-    let dataToDisplay = projectData[path].slice(0,pages); 
+    let dataToDisplay = projectData[path].slice(0,cards); 
     
     const handleShowProject = ()=> {
-        if(pages === projectData[path].length) return
-        const nextPage = pages + 4
-        if(projectData[path].length >= nextPage) {
-            setPages(nextPage)
+        if(cards === projectData[path].length) return
+        const nextCards = cards + 4
+        if(projectData[path].length >= nextCards) {
+            setCards(nextCards)
         } else {
-            setPages(projectData[path].length)
+            setCards(projectData[path].length)
             setBtnText('The Journey Ends Here... For Now!')
         }
         setIsLoading(true)
@@ -30,6 +30,8 @@ export default function ProjectsRender ({ path }) {
         setCompLoading(true)
         const timeout = setTimeout(()=> {
             setCompLoading(false)
+            setBtnText('Show Me More Masterpieces')
+            setCards(4)
         }, 1000)
         return ()=> clearTimeout(timeout)
     }, [path])
@@ -62,7 +64,7 @@ export default function ProjectsRender ({ path }) {
                         })}
                     </div>
                     <div className='w-[50%] max-w-[550px] h-[2px] my-10 mx-auto bg-accent-color dark:bg-accent-color-dark' />
-                    {projectData[path].length > 0 && <button onClick={handleShowProject} className={`flex mx-auto ${Styles.btn['btnStyle']} ${pages === projectData[path].length ? 'text-accent-color dark:text-accent-color-dark underline underline-offset-4 cursor-default' : Styles.btn['btnColor']}`}>{btnText}</button>}
+                    {projectData[path].length > 0 && <button onClick={handleShowProject} className={`flex mx-auto ${Styles.btn['btnStyle']} ${cards === projectData[path].length ? 'text-accent-color dark:text-accent-color-dark underline underline-offset-4 cursor-default' : Styles.btn['btnColor']}`}>{btnText}</button>}
                 </>)
             }
         </div>
