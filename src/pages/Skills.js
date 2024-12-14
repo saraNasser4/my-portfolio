@@ -20,8 +20,10 @@ export default function Skills (){
     { name: 'JavaScript', img: '/assets/imgs/logo-javascript.svg' },
     { name: 'GSAP', img: '/assets/imgs/gsap-greensock.svg' },
     { name: 'ES6' },
+    { name: 'TypeScript', img: '/assets/imgs/typescript.svg' },
     { name: 'React JS', img: '/assets/imgs/react-2.svg'},
     { name: 'Redux', img: '/assets/imgs/redux-logo.svg'},
+    { name: 'Next JS', img: '/assets/imgs/next-dot-js.svg'},
     { name: 'Git', img: '/assets/imgs/git-icon.svg' },
     { name: 'GitHub', img: '/assets/imgs/github-icon.svg' },
     { name: 'Firebase', img: '/assets/imgs/firebase.svg' },
@@ -41,7 +43,6 @@ export default function Skills (){
   const handleLeftClick = ()=> { 
     setRenderSkills((prevSkills)=> {
       const currentIndex = skillsData.map(el => el.name).indexOf(prevSkills[0].name);
-      console.log()
       let newIndex = currentIndex - 1;
       
       if(newIndex < 0) {
@@ -95,7 +96,7 @@ export default function Skills (){
                   className="w-44 h-44 bg-text-color-dark dark:bg-text-color relative rounded-md cursor-default select-none card"
                 >
                   {skillObj.img ? 
-                    <img src={skillObj.img} className='w-32 h-32 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:invert' alt={`${skillObj.name} logo`} /> 
+                    <img src={skillObj.img} loading='lazy' className='w-32 h-32 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:invert' alt={`${skillObj.name} logo`} /> 
                     :
                     <p className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-semibold text-4xl'>{skillObj.name}</p>
                   }
